@@ -52,8 +52,10 @@ public class Cannon : MonoBehaviour
             Count++;
             if (Count > 10)
             {
-                GameObject Fire = Instantiate(ShotObject) as GameObject;//弾の生成
-                Fire.transform.position = new Vector3(this.transform.position.x, this.transform.position.x, this.transform.position.z);//自分の場所に出す
+                GameObject FireObj = Instantiate(ShotObject) as GameObject;//弾の生成
+                Fire FireScript = FireObj.GetComponent<Fire>();
+                FireScript.SetVelocity(gameObject.transform.localEulerAngles.z);
+                FireObj.transform.position = new Vector3(this.transform.position.x, this.transform.position.x, this.transform.position.z);//自分の場所に出す
                 Debug.Log("oaaa");
                 yield break;
             }
