@@ -303,8 +303,14 @@ PrefabInstance:
     - target: {fileID: 2930627623153252117, guid: e0d37941148b45a4da54a20d90e38e67,
         type: 3}
       propertyPath: m_Name
-      value: Spyder
+      value: Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 2930627623153252118, guid: e0d37941148b45a4da54a20d90e38e67,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 87524792770234f4f9f53acc7cd133ee,
+        type: 3}
     - target: {fileID: 2930627623153252119, guid: e0d37941148b45a4da54a20d90e38e67,
         type: 3}
       propertyPath: span
