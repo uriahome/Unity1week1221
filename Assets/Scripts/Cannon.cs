@@ -21,7 +21,7 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isAttack){
+        /*if(isAttack){
             if(NowShotCount>=1){
                 StartCoroutine("Attack");
                 NowShotCount--;
@@ -37,7 +37,25 @@ public class Cannon : MonoBehaviour
             }else{
                 this.delta += Time.deltaTime;
             }
+        }*/
+        if(span < delta){//行動をする　ちょっとif文が多すぎる
+                delta = 0;
+                if(isAttack){
+                    if(NowShotCount >=1){
+                        StartCoroutine("Attack");
+                        NowShotCount--;
+                    }
+                }else{
+                    NowShotCount++;
+                    delta = 0;
+                if(NowShotCount>=MaxShotCount){
+                    NowShotCount = MaxShotCount;
+                }
+                }
+        }else{
+            this.delta += Time.deltaTime;
         }
+
     }
 
     public void OnClickAction(){//クリックされたときの行動
@@ -45,22 +63,12 @@ public class Cannon : MonoBehaviour
     isAttack = !isAttack;
     }
     public IEnumerator Attack(){
-        int Count = 0;
-        float interval = 0.1f;
-        while (true)
-        {
-            Count++;
-            if (Count > 10)
-            {
-                GameObject FireObj = Instantiate(ShotObject) as GameObject;//弾の生成
-                Fire FireScript = FireObj.GetComponent<Fire>();
-                FireScript.SetVelocity(gameObject.transform.localEulerAngles.z);
-                FireObj.transform.position = new Vector3(this.transform.position.x, this.transform.position.x, this.transform.position.z);//自分の場所に出す
-                Debug.Log("oaaa");
-                yield break;
-            }
-            yield return new WaitForSeconds(interval);
-        }
+    GameObject FireObj = Instantiate(ShotObject) as GameObject;//弾の生成
+    Fire FireScript = FireObj.GetComponent<Fire>();
+    FireScript.SetVelocity(gameObject.transform.localEulerAngles.z);
+    FireObj.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);//自分の場所に出す
+    Debug.Log("oaaa");
+    yield break;
     }
 
 
