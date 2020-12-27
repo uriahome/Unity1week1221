@@ -13,6 +13,9 @@ public class GManager : MonoBehaviour
     public float CountTime;
     public int seconds;
 
+    public GameObject WinCanvas;
+    public GameObject LoseCanvas;
+
     void Start()
     {
         //if (instance == null)//1つだけ存在するようにする
@@ -22,6 +25,11 @@ public class GManager : MonoBehaviour
         Timer = GameObject.Find("Canvas/Timer");
         TimerText = Timer.GetComponent<Text>();
         seconds = 1;
+        IsBattle = true;
+        WinCanvas = GameObject.Find("WinCanvas");
+        WinCanvas.gameObject.SetActive(false);
+        LoseCanvas = GameObject.Find("LoseCanvas");
+        LoseCanvas.gameObject.SetActive(false);
        // }
         //else
        // {
@@ -39,13 +47,21 @@ public class GManager : MonoBehaviour
         {
             CountTime = -1;
             //勝利
+            if(IsBattle){
+                Win();
+            }
         }
         seconds = (int)CountTime;
         TimerText.text = "Time:"+seconds.ToString();
     }
 
-    public void BattleStart(){
-        IsBattle = true;
-
+    public void Win(){
+        WinCanvas.gameObject.SetActive(true);
+        IsBattle = false;
+        
+    }
+    public void Lose(){
+        LoseCanvas.gameObject.SetActive(true);
+        IsBattle = false;
     }
 }

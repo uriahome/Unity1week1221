@@ -5,9 +5,12 @@ using UnityEngine;
 public class Castle : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject GM;
+    public GManager GMan;
     void Start()
     {
-        
+        GM = GameObject.Find("GameManager");
+        GMan = GM.GetComponent<GManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +21,7 @@ public class Castle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag=="Enemy"){
+            GMan.Lose();
             Destroy(this.gameObject);
         }   
     }
