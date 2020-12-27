@@ -34,11 +34,13 @@ public class Cannon : MonoBehaviour
         if(span < delta){//行動をする ちょっとif文が多すぎる
                 delta = 0;
                 if(isAttack){
+                    MySprite.sprite = CannonSprite[1];//赤
                     if(NowShotCount >=1){
                         StartCoroutine("Attack");
                         NowShotCount--;
                     }
                 }else{
+                    MySprite.sprite = CannonSprite[0];//緑
                     NowShotCount++;
                     delta = 0;
                 if(NowShotCount>=MaxShotCount){
