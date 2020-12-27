@@ -18,6 +18,9 @@ public class Cannon : MonoBehaviour
     public Vector3 Enemypos;//エネミーの座標
     public Vector3 Myangle;//自分の座標とエネミー座標の差
     public float angle;
+
+    public AudioSource audio1;
+    public AudioClip sound1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class Cannon : MonoBehaviour
         isAttack = false;
         MyCannonRange = this.GetComponentInChildren<CannonRange>();//子オブジェクトから取得
         MySprite = this.GetComponent<SpriteRenderer>();
+        audio1 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,6 +66,7 @@ public class Cannon : MonoBehaviour
 
     public void OnClickAction(){//クリックされたときの行動
     Debug.Log("クリックされました！");
+    audio1.PlayOneShot(sound1);//召喚の効果音を再生
     isAttack = !isAttack;
     }
     public IEnumerator Attack(){
