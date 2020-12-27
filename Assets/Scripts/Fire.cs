@@ -26,4 +26,10 @@ public class Fire : MonoBehaviour
         this.gameObject.transform.rotation = Quaternion.Euler(0.0f,0.0f,rotationZ);
         MoveVelocity = gameObject.transform.rotation * new Vector3(0.0f,speed,0.0f);
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag=="EnemyShield"){
+            Destroy(this.gameObject);
+        }   
+    }
 }

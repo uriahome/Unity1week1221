@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     public float speed;
     public Vector3 MoveVelocity;//進むべき方向
+    public bool HaveShield;//シールドを持っているなら
 
     void Start()
     {
@@ -27,6 +28,9 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("nyaa");
         if(other.gameObject.tag=="Fire"){
+            if(HaveShield){
+                Destroy(transform.parent.gameObject);
+            }
             Destroy(this.gameObject);
             Destroy(other.gameObject);
         }   
