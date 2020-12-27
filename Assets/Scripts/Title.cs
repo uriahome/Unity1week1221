@@ -19,6 +19,11 @@ public class Title : MonoBehaviour
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("BattleScene");
     }
+    public void ChangeHard()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("BattleScene2");
+    }
+
 
     public void ChangeTitle()
     {//タイトルに戻ってくるとき
