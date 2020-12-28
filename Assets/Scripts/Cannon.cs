@@ -20,7 +20,7 @@ public class Cannon : MonoBehaviour
     public float angle;
 
     public AudioSource audio1;
-    public AudioClip sound1;
+    public AudioClip[] sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,10 +66,11 @@ public class Cannon : MonoBehaviour
 
     public void OnClickAction(){//クリックされたときの行動
     Debug.Log("クリックされました！");
-    audio1.PlayOneShot(sound1);//召喚の効果音を再生
+    audio1.PlayOneShot(sound[0]);//召喚の効果音を再生
     isAttack = !isAttack;
     }
     public IEnumerator Attack(){
+    audio1.PlayOneShot(sound[1]);//炎の効果音を再生
     GameObject FireObj = Instantiate(ShotObject) as GameObject;//弾の生成
     Fire FireScript = FireObj.GetComponent<Fire>();
     FireScript.SetVelocity(gameObject.transform.localEulerAngles.z);

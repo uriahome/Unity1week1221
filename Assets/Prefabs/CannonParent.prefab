@@ -568,6 +568,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2930627623153252119, guid: e0d37941148b45a4da54a20d90e38e67,
         type: 3}
+      propertyPath: sound.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930627623153252119, guid: e0d37941148b45a4da54a20d90e38e67,
+        type: 3}
+      propertyPath: sound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e72817f318b81104e938bde09c12047b, type: 3}
+    - target: {fileID: 2930627623153252119, guid: e0d37941148b45a4da54a20d90e38e67,
+        type: 3}
+      propertyPath: sound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3783e70721f73854eb9c8301c1356f7c, type: 3}
+    - target: {fileID: 2930627623153252119, guid: e0d37941148b45a4da54a20d90e38e67,
+        type: 3}
       propertyPath: CannonSprite.Array.size
       value: 2
       objectReference: {fileID: 0}
